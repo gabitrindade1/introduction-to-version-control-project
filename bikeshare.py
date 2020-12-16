@@ -43,10 +43,9 @@ def get_month():
     return month
 
 
-def get_filters():
+def get_day():
     """
-    Asks user to specify a month, and day to analyze.
-
+    Asks user to specify a day to analyze.
     Returns:
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
@@ -221,7 +220,7 @@ def main():
     while True:
         city = get_city()
         month = get_month()
-        day = get_filters()
+        day = get_day()
         df = load_data(city, month, day)
         time_stats(df)
         station_stats(df)
