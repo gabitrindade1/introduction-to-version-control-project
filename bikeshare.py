@@ -7,15 +7,11 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
-
-def get_filters():
+def get_city():
     """
-    Asks user to specify a city, month, and day to analyze.
-
-    Returns:
+        Asks user to specify a city to analyze.
+        Returns:
         (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     print('-=' * 55)
@@ -26,6 +22,17 @@ def get_filters():
         city = input('\033[1:35mInvalid option!\033[m Please, choose a valid city:  ').strip().lower()
     print('--> The city option \033[31m{}\033[m has been successfully registered...'.format(city))
     t.sleep(1)
+
+    return city
+
+def get_filters():
+    """
+    Asks user to specify a month, and day to analyze.
+
+    Returns:
+        (str) month - name of the month to filter by, or "all" to apply no month filter
+        (str) day - name of the day of week to filter by, or "all" to apply no day filter
+    """
 
     # get user input for month (january, february, ... , june or all)
     month = input('* Choose a month from January to June or "all" for no filter. Enter your answer: ').strip().lower()
@@ -41,7 +48,7 @@ def get_filters():
     print('--> The day option \033[31m{}\033[m has been successfully registered...'.format(day))
 
     print('-=' * 55)
-    return city, month, day
+    return month, day
 
 
 def load_data(city, month, day):
@@ -202,7 +209,8 @@ def raw_data(df):
 
 def main():
     while True:
-        city, month, day = get_filters()
+        city = get_city()
+        month, day = get_filters()
         df = load_data(city, month, day)
         time_stats(df)
         station_stats(df)
