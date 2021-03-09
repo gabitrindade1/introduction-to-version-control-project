@@ -1,1 +1,3 @@
 __December 15, 2020__
+
+This is a project for Udacity’s Programming for Data Science with Python nanodegree program. The objective was to simulate a realistic workflow to refactor the previous BikeShare project using Git. This project requires that students add a completed project on GitHub, work with branches, edit a README file and other project files, merge branches, stage and commit the changes to the GitHub repository.
